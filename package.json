@@ -7,7 +7,7 @@
   ],
   "scripts": {
     "types": "yarn tsc",
-    "prepublish": "yarn types"
+    "prepublishOnly": "yarn types"
   },
   "peerDependencies": {
     "pixi.js": ">=4.6.0"
