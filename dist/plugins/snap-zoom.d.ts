@@ -31,7 +31,7 @@ export type SnapZoomOptions = {
     height?: number;
     time?: number;
     ease?: (string | Function);
-    center?: any;
+    center?: PIXI.Point;
     interrupt?: boolean;
     removeOnComplete?: boolean;
     removeOnInterrupt?: boolean;

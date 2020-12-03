@@ -30,10 +30,11 @@ export class Bounce extends Plugin {
         right: boolean;
         top: boolean;
         bottom: boolean;
-        topLeft: any;
-        bottomRight: any;
+        topLeft: PIXI.Point;
+        bottomRight: PIXI.Point;
     };
     bounce(): void;
 }
 export type BounceOptions = any;
 import { Plugin } from "./plugin";
+import * as PIXI from "pixi.js";

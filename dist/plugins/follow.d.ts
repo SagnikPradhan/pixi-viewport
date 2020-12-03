@@ -1,6 +1,6 @@
 export class Follow extends Plugin {
     private constructor();
-    target: any;
+    target: PIXI.DisplayObject;
     options: {
         speed: number;
         acceleration: any;

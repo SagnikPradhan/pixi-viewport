@@ -18,6 +18,6 @@ export type PinchOptions = {
     noDrag?: boolean;
     percent?: number;
     factor?: number;
-    center?: any;
+    center?: PIXI.Point;
 };
 import { Plugin } from "./plugin";

@@ -24,8 +24,8 @@ export class Drag extends Plugin {
     parseUnderflow(): void;
     underflowX: number;
     underflowY: number;
-    checkButtons(event: any): boolean;
-    checkKeyPress(event: any): boolean;
+    checkButtons(event: PIXI.InteractionEvent): boolean;
+    checkKeyPress(event: PIXI.InteractionEvent): boolean;
     last: {
         x: any;
         y: any;
@@ -37,7 +37,7 @@ export class Drag extends Plugin {
 export type LastDrag = {
     x: number;
     y: number;
-    parent: any;
+    parent: PIXI.Point;
 };
 export type DragOptions = {
     direction?: string;
@@ -53,3 +53,4 @@ export type DragOptions = {
     ignoreKeyToPressOnTouch?: boolean;
 };
 import { Plugin } from "./plugin";
+import * as PIXI from "pixi.js";

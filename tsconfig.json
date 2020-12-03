@@ -2,12 +2,13 @@
   "include": ["src/**/*"],
 
   "compilerOptions": {
-    "module": "es2020",
     "target": "es2020",
+    "module": "es2020",
     "lib": ["DOM", "es2020"],
     "allowJs": true,
     "declaration": true,
     "outDir": "dist",
-    "removeComments": true
+    "removeComments": true,
+    "moduleResolution": "node"
   }
 }

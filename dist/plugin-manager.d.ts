@@ -12,8 +12,8 @@ export class PluginManager {
     pause(name: string): void;
     resume(name: string): void;
     sort(): void;
-    down(event: any): boolean;
-    move(event: any): boolean;
-    up(event: any): boolean;
+    down(event: import("pixi.js").InteractionEvent): boolean;
+    move(event: import("pixi.js").InteractionEvent): boolean;
+    up(event: import("pixi.js").InteractionEvent): boolean;
     wheel(e: any): boolean;
 }

@@ -6,14 +6,14 @@ export class InputManager {
     wheelFunction: (e: any) => void;
     isMouseDown: boolean;
     destroy(): void;
-    down(event: any): void;
-    last: any;
+    down(event: PIXI.InteractionEvent): void;
+    last: PIXI.Point;
     clickedAvailable: boolean;
     clear(): void;
     checkThreshold(change: number): boolean;
-    move(event: any): void;
-    up(event: any): void;
-    getPointerPosition(event: WheelEvent): any;
+    move(event: PIXI.InteractionEvent): void;
+    up(event: PIXI.InteractionEvent): void;
+    getPointerPosition(event: WheelEvent): PIXI.Point;
     handleWheel(event: WheelEvent): void;
     pause(): void;
     get(id: number): ViewportTouch;
@@ -22,5 +22,6 @@ export class InputManager {
 }
 export type ViewportTouch = {
     id: number;
-    last: any;
+    last: PIXI.Point;
 };
+import * as PIXI from "pixi.js";

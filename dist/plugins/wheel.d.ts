@@ -10,7 +10,7 @@ export type WheelOptions = {
     smooth?: number;
     interrupt?: boolean;
     reverse?: boolean;
-    center?: any;
+    center?: PIXI.Point;
     lineHeight?: number;
 };
 import { Plugin } from "./plugin";
