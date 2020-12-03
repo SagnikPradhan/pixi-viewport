@@ -1,10 +1,4 @@
 export class Animate extends Plugin {
-    /**
-     * @private
-     * @param {Viewport} parent
-     * @param {AnimateOptions} [options]
-     * @fires animate-end
-     */
     private constructor();
     options: any;
     setupPosition(): void;
@@ -23,8 +17,5 @@ export class Animate extends Plugin {
     time: number;
     complete(): void;
 }
-/**
- * To set the zoom level, use: (1) scale, (2) scaleX and scaleY, or (3) width and/or height
- */
 export type AnimateOptions = any;
 import { Plugin } from "./plugin";

@@ -1,11 +1,9 @@
 {
   "name": "pixi-viewport",
-  "main": "src/viewport.js",
+  "main": "dist/viewport.js",
   "version": "4.18.1",
-  "types": "types/viewport.d.ts",
   "files": [
-    "src",
-    "types"
+    "dist"
   ],
   "scripts": {
     "types": "yarn tsc",
