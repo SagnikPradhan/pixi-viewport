@@ -63,24 +63,24 @@ export class PluginManager {
     /**
      * handle down for all plugins
      * @ignore
-     * @param {PIXI.InteractionEvent} event
+     * @param {import("pixi.js").InteractionEvent} event
      * @returns {boolean}
      */
-    down(event: any): boolean;
+    down(event: import("pixi.js").InteractionEvent): boolean;
     /**
      * handle move for all plugins
      * @ignore
-     * @param {PIXI.InteractionEvent} event
+     * @param {import("pixi.js").InteractionEvent} event
      * @returns {boolean}
      */
-    move(event: any): boolean;
+    move(event: import("pixi.js").InteractionEvent): boolean;
     /**
      * handle up for all plugins
      * @ignore
-     * @param {PIXI.InteractionEvent} event
+     * @param {import("pixi.js").InteractionEvent} event
      * @returns {boolean}
      */
-    up(event: any): boolean;
+    up(event: import("pixi.js").InteractionEvent): boolean;
     /**
      * handle wheel event for all plugins
      * @ignore

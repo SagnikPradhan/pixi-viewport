@@ -34,7 +34,7 @@ export type WheelOptions = {
     /**
      * place this point at center during zoom instead of current mouse position
      */
-    center?: any;
+    center?: PIXI.Point;
     /**
      * scaling factor for non-DOM_DELTA_PIXEL scrolling events
      */

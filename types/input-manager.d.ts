@@ -31,8 +31,8 @@ export class InputManager {
      * handle down events for viewport
      * @param {PIXI.InteractionEvent} event
      */
-    down(event: any): void;
-    last: any;
+    down(event: PIXI.InteractionEvent): void;
+    last: PIXI.Point;
     clickedAvailable: boolean;
     /**
      * clears all pointer events
@@ -47,18 +47,18 @@ export class InputManager {
      * handle move events for viewport
      * @param {PIXI.InteractionEvent} event
      */
-    move(event: any): void;
+    move(event: PIXI.InteractionEvent): void;
     /**
      * handle up events for viewport
      * @param {PIXI.InteractionEvent} event
      */
-    up(event: any): void;
+    up(event: PIXI.InteractionEvent): void;
     /**
      * gets pointer position if this.interaction is set
      * @param {WheelEvent} event
      * @return {PIXI.Point}
      */
-    getPointerPosition(event: WheelEvent): any;
+    getPointerPosition(event: WheelEvent): PIXI.Point;
     /**
      * handle wheel events
      * @param {WheelEvent} event
@@ -83,5 +83,6 @@ export class InputManager {
 }
 export type ViewportTouch = {
     id: number;
-    last: any;
+    last: PIXI.Point;
 };
+import * as PIXI from "pixi.js";

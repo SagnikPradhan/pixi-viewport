@@ -6,7 +6,7 @@ export class Follow extends Plugin {
      * @param {FollowOptions} [options]
      */
     private constructor();
-    target: any;
+    target: PIXI.DisplayObject;
     options: any;
     velocity: {
         x: number;

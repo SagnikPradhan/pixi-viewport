@@ -1,8 +1,9 @@
 export { Plugin } from "./plugins/plugin";
 /**
  * Main class to use when creating a Viewport
+ * @extends {PIXI.Container}
  */
-export class Viewport {
+export class Viewport extends PIXI.Container {
     /**
      * @param {ViewportOptions} [options]
      * @fires clicked
@@ -64,13 +65,6 @@ export class Viewport {
      */
     plugins: PluginManager;
     /**
-     * overrides PIXI.Container's destroy to also remove the 'wheel' and PIXI.Ticker listeners
-     * @param {(object|boolean)} [options] - Options parameter. A boolean will act as if all options have been set to that value
-     * @param {boolean} [options.children=false] - if set to true, all the children will have their destroy method called as well. 'options' will be passed on to those calls.
-     * @param {boolean} [options.texture=false] - Only used for child Sprites if options.children is set to true. Should it destroy the texture of the child sprite
-     * @param {boolean} [options.baseTexture=false] - Only used for child Sprites if options.children is set to true. Should it destroy the base texture of the child sprite     */
-    destroy(options?: (object | boolean)): void;
-    /**
      * update viewport on each frame
      * by default, you do not need to call this unless you set options.noTicker=true
      * @param {number} elapsed time in milliseconds since last update
@@ -78,8 +72,7 @@ export class Viewport {
     update(elapsed: number): void;
     moving: boolean;
     zooming: boolean;
-    _hitAreaDefault: any;
-    hitArea: any;
+    _hitAreaDefault: PIXI.Rectangle;
     _dirty: any;
     lastViewport: any;
     /**
@@ -112,21 +105,21 @@ export class Viewport {
      * get visible bounds of viewport
      * @returns {PIXI.Rectangle}
      */
-    getVisibleBounds(): any;
+    getVisibleBounds(): PIXI.Rectangle;
     /**
      * change coordinates from screen to world
      * @param {(number|PIXI.Point)} x or point
      * @param {number} [y]
      * @return {PIXI.Point}
      */
-    toWorld(x: (number | any), y?: number, ...args: any[]): any;
+    toWorld(x: (number | PIXI.Point), y?: number, ...args: any[]): PIXI.Point;
     /**
      * change coordinates from world to screen
      * @param {(number|PIXI.Point)} x or point
      * @param {number} [y]
      * @return {PIXI.Point}
      */
-    toScreen(x: (number | any), y?: number, ...args: any[]): any;
+    toScreen(x: (number | PIXI.Point), y?: number, ...args: any[]): PIXI.Point;
     /**
      * screen width in world coordinates
      * @type {number}
@@ -147,12 +140,12 @@ export class Viewport {
      * @type {number}
      */
     get screenWorldHeight(): number;
-    set center(arg: any);
+    set center(arg: PIXI.Point);
     /**
      * center of screen in world coordinates
      * @type {PIXI.Point}
      */
-    get center(): any;
+    get center(): PIXI.Point;
     /**
      * move center of viewport to point
      * @param {(number|PIXI.Point)} x or point
@@ -160,19 +153,19 @@ export class Viewport {
      * @return {Viewport} this
      */
     moveCenter(...args: any[]): Viewport;
-    set corner(arg: any);
+    set corner(arg: PIXI.Point);
     /**
      * top-left corner of Viewport
      * @type {PIXI.Point}
      */
-    get corner(): any;
+    get corner(): PIXI.Point;
     /**
      * move viewport's top-left corner; also clamps and resets decelerate and bounce (as needed)
      * @param {(number|PIXI.Point)} x or point
      * @param {number} [y]
      * @return {Viewport} this
      */
-    moveCorner(x: (number | any), y?: number, ...args: any[]): Viewport;
+    moveCorner(x: (number | PIXI.Point), y?: number, ...args: any[]): Viewport;
     /**
      * get how many world pixels fit in screen's width
      * @type {number}
@@ -245,7 +238,6 @@ export class Viewport {
      * @returns {Viewport} this
      */
     fit(center?: boolean, width?: number, height?: number): Viewport;
-    set visible(arg: any);
     /**
      * zoom viewport to specific value
      * @param {number} scale value (e.g., 1 would be 100%, 0.25 would be 25%)
@@ -271,8 +263,8 @@ export class Viewport {
      * changes scale of viewport and maintains center of viewport
      * @type {number}
      */
-    set scaled(arg: any);
-    get scaled(): any;
+    set scaled(arg: number);
+    get scaled(): number;
     /**
      * @param {SnapZoomOptions} options
      */
@@ -288,7 +280,6 @@ export class Viewport {
      * @type {number}
      */
     get right(): number;
-    x: number;
     set left(arg: number);
     /**
      * world coordinates of the left edge of the screen
@@ -301,7 +292,6 @@ export class Viewport {
      * @type {number}
      */
     get top(): number;
-    y: number;
     set bottom(arg: number);
     /**
      * world coordinates of the bottom edge of the screen
@@ -388,7 +378,7 @@ export class Viewport {
      * @param {FollowOptions} [options]
      * @returns {Viewport} this
      */
-    follow(target: any, options?: any): Viewport;
+    follow(target: PIXI.DisplayObject, options?: any): Viewport;
     /**
      * zoom using mouse wheel
      * @param {WheelOptions} [options]
@@ -468,11 +458,11 @@ export type ViewportOptions = {
     /**
      * use this PIXI.ticker for updates
      */
-    ticker?: any;
+    ticker?: PIXI.Ticker;
     /**
      * InteractionManager, available from instantiated WebGLRenderer/CanvasRenderer.plugins.interaction - used to calculate pointer postion relative to canvas location on screen
      */
-    interaction?: any;
+    interaction?: PIXI.InteractionManager;
     /**
      * div to attach the wheel event
      */
@@ -488,5 +478,6 @@ export type ViewportOptions = {
 export type HitArea = any;
 export type OutOfBounds = any;
 export type LastViewport = any;
+import * as PIXI from "pixi.js";
 import { InputManager } from "./input-manager";
 import { PluginManager } from "./plugin-manager";

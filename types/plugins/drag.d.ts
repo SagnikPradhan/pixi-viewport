@@ -31,12 +31,12 @@ export class Drag extends Plugin {
      * @param {PIXI.InteractionEvent} event
      * @returns {boolean}
      */
-    checkButtons(event: any): boolean;
+    checkButtons(event: PIXI.InteractionEvent): boolean;
     /**
      * @param {PIXI.InteractionEvent} event
      * @returns {boolean}
      */
-    checkKeyPress(event: any): boolean;
+    checkKeyPress(event: PIXI.InteractionEvent): boolean;
     last: {
         x: any;
         y: any;
@@ -48,7 +48,7 @@ export class Drag extends Plugin {
 export type LastDrag = {
     x: number;
     y: number;
-    parent: any;
+    parent: PIXI.Point;
 };
 export type DragOptions = {
     /**
@@ -97,3 +97,4 @@ export type DragOptions = {
     ignoreKeyToPressOnTouch?: boolean;
 };
 import { Plugin } from "./plugin";
+import * as PIXI from "pixi.js";

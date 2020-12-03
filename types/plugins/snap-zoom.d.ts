@@ -42,7 +42,7 @@ export type SnapZoomOptions = {
     /**
      * place this point at center during zoom instead of center of the viewport
      */
-    center?: any;
+    center?: PIXI.Point;
     /**
      * pause snapping with any user input on the viewport
      */

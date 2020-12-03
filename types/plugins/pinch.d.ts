@@ -30,6 +30,6 @@ export type PinchOptions = {
     /**
      * place this point at center during zoom instead of center of two fingers
      */
-    center?: any;
+    center?: PIXI.Point;
 };
 import { Plugin } from "./plugin";
